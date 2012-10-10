@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ProjectGuid>{C647B628-C332-4F7F-8F54-8C6E25CA0AE5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="style.css" />
+    <TypeScriptCompile Include="IBoardView.ts" />
+    <TypeScriptCompile Include="HtmlCanvasBoardView.ts" />
+    <Content Include="BoardCanvas.js">
+      <DependentUpon>HtmlCanvasBoardView.ts</DependentUpon>
+    </Content>
+    <Content Include="BoardCanvasView.js">
+      <DependentUpon>HtmlCanvasBoardView.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="CssBoardView.ts" />
+    <Content Include="BoardCSS.js">
+      <DependentUpon>CssBoardView.ts</DependentUpon>
+    </Content>
+    <Content Include="BoardCSSView.js">
+      <DependentUpon>CssBoardView.ts</DependentUpon>
+    </Content>
+    <Content Include="CssBoardView.js">
+      <DependentUpon>CssBoardView.ts</DependentUpon>
+    </Content>
+    <Content Include="Game.js">
+      <DependentUpon>Game.ts</DependentUpon>
+    </Content>
+    <Content Include="HtmlCanvasBoard.js">
+      <DependentUpon>HtmlCanvasBoardView.ts</DependentUpon>
+    </Content>
+    <Content Include="HtmlCanvasBoardView.js">
+      <DependentUpon>HtmlCanvasBoardView.ts</DependentUpon>
+    </Content>
+    <Content Include="IBoardView.js">
+      <DependentUpon>IBoardView.ts</DependentUpon>
+    </Content>
+    <Content Include="jquery.d.ts" />
+    <TypeScriptCompile Include="Tools.ts" />
+    <Content Include="Tools.js">
+      <DependentUpon>Tools.ts</DependentUpon>
+    </Content>
+    <Content Include="Vector.js">
+      <DependentUpon>Vector.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="Vector.ts" />
+    <TypeScriptCompile Include="BoardModel.ts" />
+    <Content Include="BoardModel.js">
+      <DependentUpon>BoardModel.ts</DependentUpon>
+    </Content>
+    <Content Include="index.html" />
+    <Content Include="app.js">
+      <DependentUpon>Game.ts</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Game.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="web.config" />
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>TSnake</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5696/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="BeforeBuild">
+    <Exec Command="&quot;$(PROGRAMFILES)\Microsoft SDKs\TypeScript\0.8.0.0\tsc&quot; @(TypeScriptCompile ->'&quot;%(fullpath)&quot;', ' ')" />
+  </Target>
+</Project>

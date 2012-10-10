@@ -1,0 +1,88 @@
+﻿body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    text-align: center;
+    color: #f3f3f3;
+}
+
+h1, h2 {
+    font: 300 200px/1.2 'Pacifico', Georgia;
+    color: #ffa500;
+    margin: 0 auto;
+    padding: 0;
+    line-height: 1em;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-shadow: 2px 2px #000;
+    text-shadow: 2px 2px #000;
+}
+
+h3 {
+    font: 300 120px/1.2 'Abril Fatface', Georgia;
+    font-size: 55px;
+    margin-top: 30px;
+    color: #ccc;
+}
+
+#board {
+    position: relative;
+    margin: 0 auto;
+}
+
+#boardCanvas {
+    float: left;
+    margin-top: 5px;
+    margin-left: 5px;
+    position: absolute;
+    top: 0px;
+}
+
+#board, #boardCanvas {
+    border: 1px solid #ccc;
+    background: url(white.png);
+}
+
+.element {
+    position: absolute;
+    background: #444;
+    border: 1px solid #777;
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+}
+
+#food {
+    background-color: #f00;
+    border-color: #ffa500;
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+}
+
+#about {
+    height: 40px;
+}
+
+.shadow {
+    -moz-box-shadow: rgba(0,0,0,0.2) 1px 1px 10px;
+    -webkit-box-shadow: rgba(0,0,0,0.2) 1px 1px 10px;
+    -o-box-shadow: rgba(0,0,0,0.2) 1px 1px 10px;
+    box-shadow: rgba(0,0,0,0.2) 1px 1px 10px;
+    -moz-transition-property: opacity;
+    -webkit-transition-property: opacity;
+    -o-transition-property: opacity;
+    transition-property: opacity;
+    -moz-transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    transition-duration: 1s;
+}
+
+a {
+    color: #aaa;
+}
